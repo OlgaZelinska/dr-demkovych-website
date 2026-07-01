@@ -17,10 +17,11 @@ export const Button: React.FC<ButtonProps> = ({
   const baseStyles = 'inline-flex items-center justify-center rounded-full font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
 
   const variants = {
-    primary: 'bg-[#DB854F] text-[#F4E8E3] hover:bg-[#C96D3B] hover:scale-105 focus:ring-[#DB854F] shadow-md hover:shadow-lg',
-    outline: 'border-2 border-[#F4E8E3] text-[#F4E8E3] hover:bg-[#DB854F] hover:text-[#F4E8E3] focus:ring-[#F4E8E3]',
+    // Using CSS variables for consistent color rendering across devices
+    primary: 'bg-[rgb(var(--color-orange))] text-[rgb(var(--color-text-primary))] hover:bg-[rgb(var(--color-primary-700))] hover:scale-105 focus:ring-[rgb(var(--color-orange))] shadow-md hover:shadow-lg',
+    outline: 'border-2 border-[rgb(var(--color-text-primary))] text-[rgb(var(--color-text-primary))] hover:bg-[rgb(var(--color-orange))] hover:text-[rgb(var(--color-text-primary))] focus:ring-[rgb(var(--color-text-primary))]',
     ghost: 'text-gray-600 hover:bg-gray-100 hover:text-gray-900',
-    instagram: 'bg-white text-[#1C1C1C] hover:bg-[#F0F0F0] hover:scale-105 focus:ring-white shadow-sm hover:shadow-md',
+    instagram: 'bg-white text-[rgb(var(--color-text-black))] hover:bg-[#F0F0F0] hover:scale-105 focus:ring-white shadow-sm hover:shadow-md',
   }
 
   const sizes = {

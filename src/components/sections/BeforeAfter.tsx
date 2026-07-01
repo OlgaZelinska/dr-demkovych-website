@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import TelegramIcon from '../../assets/images/telegram.svg'
 
 // Import images from cases
 // before-*.webp = photos before surgery
@@ -38,11 +39,11 @@ import case11before3 from '../../assets/images/cases/case-11/before-03.webp'
 import case11after1 from '../../assets/images/cases/case-11/after-01.webp'
 import case11after2 from '../../assets/images/cases/case-11/after-02.webp'
 import case11after3 from '../../assets/images/cases/case-11/after-03.webp'
-import case12before1 from '../../assets/images/cases/case-12/befor-01.webp'
+import case12before1 from '../../assets/images/cases/case-12/before-01.webp'
 import case12before2 from '../../assets/images/cases/case-12/before-02.webp'
-import case12before3 from '../../assets/images/cases/case-12/before-03.webp'
 import case12after1 from '../../assets/images/cases/case-12/after-01.webp'
 import case12after2 from '../../assets/images/cases/case-12/after-02.webp'
+import case12after3 from '../../assets/images/cases/case-12/after-03.webp'
 import case13after1 from '../../assets/images/cases/case-13/after-01.webp'
 import case13after2 from '../../assets/images/cases/case-13/after-02.webp'
 import case13after3 from '../../assets/images/cases/case-13/after-03.webp'
@@ -167,8 +168,8 @@ const cases: CaseData[] = [
   {
     id: 12,
     title: 'Підтяжка обличчя 2/3 Deep Plane',
-    beforePhotos: [case12before1, case12before2, case12before3],
-    afterPhotos: [case12after1, case12after2],
+    beforePhotos: [case12before1, case12before2],
+    afterPhotos: [case12after1, case12after2, case12after3],
     term: 'Через 6 місяців',
   },
   {
@@ -213,6 +214,8 @@ const BeforeAfterSlider: React.FC<{
       }
       setTouchStart(null)
     }
+    // Prevent scrolling the page when swiping on before/after images
+    e.preventDefault()
   }
 
   const handleTouchEnd = () => setTouchStart(null)
@@ -228,11 +231,12 @@ const BeforeAfterSlider: React.FC<{
 
   return (
     <div
-      className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-lg cursor-pointer"
+      className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-lg cursor-pointer touch-none"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
       onClick={handleToggle}
+      onTouchMoveCapture={(e) => e.preventDefault()}
     >
       {hasPhotos ? (
         <>
@@ -246,8 +250,8 @@ const BeforeAfterSlider: React.FC<{
           </div>
         </>
       ) : (
-        <div className="w-full h-full flex items-center justify-center bg-[#2a2828]">
-          <span className="text-[#A0A0A0] text-sm">Немає фото</span>
+        <div className="w-full h-full flex items-center justify-center bg-[rgb(var(--color-gray-1))]">
+          <span className="text-[rgb(var(--color-text-secondary))] text-sm">Немає фото</span>
         </div>
       )}
     </div>
@@ -257,14 +261,14 @@ const BeforeAfterSlider: React.FC<{
 
 export const BeforeAfterSection: React.FC = () => {
   return (
-    <div className="py-16 bg-[#1C1C1C]">
+    <div className="py-16 bg-[rgb(var(--color-dark))]">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             До та Після
           </h2>
-          <p className="text-lg text-[#A0A0A0] max-w-2xl mx-auto">
+          <p className="text-lg text-[rgb(var(--color-text-secondary))] max-w-2xl mx-auto">
             Переконайтесь у якості нашої роботи — подивіться на реальні результати
           </p>
         </div>
@@ -277,20 +281,20 @@ export const BeforeAfterSection: React.FC = () => {
               <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 {cases[0].title}
               </h3>
-              <p className="text-[#A0A0A0] text-lg mb-6">
+              <p className="text-[rgb(var(--color-text-secondary))] text-lg mb-6">
                 Професійна хірургічна допомога з більш як 15-річним досвідом.
                 Зробіть перший крок до змін сьогодні!
               </p>
-              <div className="bg-[#2a2828] rounded-xl p-5 mb-6 border-l-4 border-[#DB854F]">
-                <p className="text-[#A0A0A0] text-sm leading-relaxed">
-                  <span className="text-[#DB854F] font-semibold">Термін після операції:</span> {cases[0].term}
+              <div className="bg-[rgb(var(--color-gray-1))] rounded-xl p-5 mb-6 border-l-4 border-[rgb(var(--color-orange))]">
+                <p className="text-[rgb(var(--color-text-secondary))] text-sm leading-relaxed">
+                  <span className="text-[rgb(var(--color-orange))] font-semibold">Термін після операції:</span> {cases[0].term}
                 </p>
               </div>
               <div className="flex gap-3">
-                <span className="text-xs text-white bg-[#DB854F] px-3 py-1 rounded-full">
+                <span className="text-xs text-white bg-[rgb(var(--color-orange))] px-3 py-1 rounded-full">
                   До операції
                 </span>
-                <span className="text-xs text-[#A0A0A0] bg-[#2a2828] px-3 py-1 rounded-full">
+                <span className="text-xs text-[rgb(var(--color-text-secondary))] bg-[rgb(var(--color-gray-1))] px-3 py-1 rounded-full">
                   Після операції
                 </span>
               </div>
@@ -306,12 +310,12 @@ export const BeforeAfterSection: React.FC = () => {
                       className="w-full aspect-[4/5] object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute top-4 left-4">
-                      <span className="text-xs font-semibold text-white bg-[#DB854F] px-3 py-1.5 rounded-full shadow-md">
+                      <span className="text-xs font-semibold text-white bg-[rgb(var(--color-orange))] px-3 py-1.5 rounded-full shadow-md">
                         До
                       </span>
                     </div>
                     <div className="absolute top-4 right-4">
-                      <span className="text-xs font-semibold text-white bg-[#1C1C1C]/90 backdrop-blur px-3 py-1.5 rounded-full shadow-md border border-white/20">
+                      <span className="text-xs font-semibold text-white bg-[rgb(var(--color-dark))]/90 backdrop-blur px-3 py-1.5 rounded-full shadow-md border border-white/20">
                         Після
                       </span>
                     </div>
@@ -327,12 +331,12 @@ export const BeforeAfterSection: React.FC = () => {
                       className="w-full aspect-[4/5] object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute top-4 left-4">
-                      <span className="text-xs font-semibold text-white bg-[#DB854F] px-3 py-1.5 rounded-full shadow-md">
+                      <span className="text-xs font-semibold text-white bg-[rgb(var(--color-orange))] px-3 py-1.5 rounded-full shadow-md">
                         До
                       </span>
                     </div>
                     <div className="absolute top-4 right-4">
-                      <span className="text-xs font-semibold text-white bg-[#1C1C1C]/90 backdrop-blur px-3 py-1.5 rounded-full shadow-md border border-white/20">
+                      <span className="text-xs font-semibold text-white bg-[rgb(var(--color-dark))]/90 backdrop-blur px-3 py-1.5 rounded-full shadow-md border border-white/20">
                         Після
                       </span>
                     </div>
@@ -346,21 +350,21 @@ export const BeforeAfterSection: React.FC = () => {
           {/* Regular Cases Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {cases.slice(1).map((item, index) => (
-              <div key={item.id} className="bg-[#2a2828] rounded-2xl overflow-hidden shadow-lg group transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+              <div key={item.id} className="bg-[rgb(var(--color-gray-1))] rounded-2xl overflow-hidden shadow-lg group transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                 <BeforeAfterSlider beforePhotos={item.beforePhotos} afterPhotos={item.afterPhotos} />
                 <div className="p-5">
                   <h3 className="text-xl font-bold text-white mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-[#A0A0A0] text-sm mb-4">
+                  <p className="text-[rgb(var(--color-text-secondary))] text-sm mb-4">
                     {item.beforePhotos.length + item.afterPhotos.length} фотографії результату
                   </p>
-                  <div className="bg-[#1C1C1C] rounded-lg p-3 border border-[#3a3838]">
+                  <div className="bg-[rgb(var(--color-dark))] rounded-lg p-3 border border-[#3a3838]">
                     <div className="flex items-center gap-2">
-                      <svg className="w-4 h-4 text-[#DB854F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 text-[rgb(var(--color-orange))]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
-                      <span className="text-xs text-[#A0A0A0] font-medium">
+                      <span className="text-xs text-[rgb(var(--color-text-secondary))] font-medium">
                         {item.term}
                       </span>
                     </div>
@@ -371,13 +375,13 @@ export const BeforeAfterSection: React.FC = () => {
           </div>
 
           {/* Telegram Section */}
-          <div className="mt-12 py-8 px-6 bg-[#1C1C1C] rounded-3xl">
+          <div className="mt-12 py-8 px-6 bg-[rgb(var(--color-dark))] rounded-3xl">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="text-center md:text-left">
                 <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
                   Більше результатів в Telegram-каналі
                 </h3>
-                <p className="text-[#A0A0A0] text-base md:text-lg">
+                <p className="text-[rgb(var(--color-text-secondary))] text-base md:text-lg">
                   Перегляньте наші роботи
                 </p>
               </div>
@@ -386,11 +390,9 @@ export const BeforeAfterSection: React.FC = () => {
                 href="https://t.me/dr_demkovych"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 px-6 py-3 bg-white text-[#1C1C1C] rounded-full font-semibold hover:bg-[#F0F0F0] transition-colors duration-300 w-full md:w-auto justify-center md:justify-start"
+                className="flex items-center gap-3 px-6 py-3 bg-white text-[rgb(var(--color-text-black))] rounded-full font-semibold hover:bg-[#F0F0F0] transition-colors duration-300 w-full md:w-auto justify-center md:justify-start"
               >
-                <svg className="w-6 h-6 text-[#1C1C1C]" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.746-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.939-.46-.71 0-1.225.46-1.939.46-.678 0-1.19-.387-1.877-.455-.677-.067-1.778-.298-2.616-1.157a3.267 3.267 0 0 1-.945-2.438c.045-1.03.135-2.06.18-2.663.043-.57.094-1.09.094-1.373 0-.253-.056-.43-.135-1.09-.06-.52-.094-1.01-.094-1.52 0-1.09.045-1.35.18-1.66.27-.615.81-1.137 1.68-1.48 1.07-.42 2.37-.52 3.8-.31 1.08.15 2.16.44 2.97.85.65.34 1.2.64 1.64.64.42 0 .74-.17.98-.51.26-.37.34-.85.39-1.36.06-.6.02-1.13.02-1.13zM9.725 19.45c-.32.43-.88.35-1.45.23-.73-.15-1.33.04-1.6.04-.38 0-.72-.16-1.08-.48-1.06-.94-1.27-2.53-1.2-4.06.04-.92.22-1.7.53-2.33.25-.53.62-1.02 1.07-1.46.33-.33.6-.56.96-.56.34 0 .6.24.84.68.21.41.33.9.4 1.38.08.57.08 1.16.08 1.67 0 .32-.06.57-.06.83 0 1.05.14 2.06.42 3.06.2.73.55 1.45 1 2.03zm4.536-1.256c-.57.32-1.17.38-1.74.24-.73-.17-1.33-.03-1.6-.03-.38 0-.72.16-1.08.48-.66.59-.8 1.66-.74 2.66.03.6.13 1.15.3 1.63.19.53.52 1.02.97 1.46.34.33.6.56.96.56.34 0 .6-.24.84-.68.21-.41.33-.9.4-1.38.08-.57.08-1.16.08-1.67 0-.32-.06-.57-.06-.83 0-1.05.14-2.06.42-3.06.2-.73.55-1.45 1-2.03z"/>
-                </svg>
+                <img src={TelegramIcon} alt="Telegram" className="w-6 h-6" />
                 Telegram
               </a>
             </div>

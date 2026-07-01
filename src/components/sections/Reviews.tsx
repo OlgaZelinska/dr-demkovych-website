@@ -48,26 +48,28 @@ export const Reviews: React.FC = () => {
 
   return (
     <div
-      className="py-16 bg-gradient-to-b from-[#e0e2ee] via-[#c9cbd8] to-[#b2b4c2]"
+      className="py-16 bg-gradient-to-b from-[#e8ebee] via-[#d4d7de] to-[#bfc2c9]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1C1C1C] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[rgb(var(--color-text-black))] mb-4">
             Відгуки
           </h2>
-          <p className="text-lg text-[#666666] max-w-2xl mx-auto">
+          <p className="text-lg text-[rgb(var(--color-text-secondary))] max-w-2xl mx-auto">
             Насамперед для нас важливе здоров'я та задоволення наших пацієнтів
           </p>
         </div>
 
         {/* Reviews Slider */}
         <div
-          className="relative overflow-visible"
+          className="relative overflow-visible touch-none"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
+          onTouchStart={(e) => e.preventDefault()}
+          onTouchMove={(e) => e.preventDefault()}
         >
           <div
             ref={sliderRef}
