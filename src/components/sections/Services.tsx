@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { getServices } from '../../lib/services'
-import ContactBg from '../../assets/images/contact-bg.webp'
+const ContactBg = '/assets/contact-bg.webp'
 
 export const Services: React.FC = () => {
   const { data: services = [], isLoading, error } = useQuery({

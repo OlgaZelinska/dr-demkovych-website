@@ -1,8 +1,8 @@
 import React from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { getDoctorInfo, DoctorInfo } from '../../lib/about'
-import DoctorOperatingRoom1 from '../../assets/images/about/oper4.webp'
-import ContactBg from '../../assets/images/contact-bg.webp'
+const ContactBg = '/assets/contact-bg.webp'
+const DoctorOperatingRoom1 = '/assets/oper4.webp'
 
 export const About: React.FC = () => {
   const { data: doctor, isLoading, error } = useQuery({

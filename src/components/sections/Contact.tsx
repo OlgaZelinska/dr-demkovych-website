@@ -1,5 +1,5 @@
 import React from 'react'
-import ContactBg from '../../assets/images/contact-bg.webp'
+const ContactBg = '/assets/contact-bg.webp'
 
 export const Contact: React.FC = () => {
   return (
