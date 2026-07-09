@@ -37,6 +37,9 @@ export const Header: React.FC = () => {
             <Link to="/services" className={`text-[rgb(var(--color-text-primary))] font-medium transition-colors ${location.pathname === '/services' ? 'text-[rgb(var(--color-orange))]' : 'hover:text-[rgb(var(--color-orange))]'}`}>
               Послуги
             </Link>
+            <Link to="/before-after" className={`text-[rgb(var(--color-text-primary))] font-medium transition-colors ${location.pathname === '/before-after' ? 'text-[rgb(var(--color-orange))]' : 'hover:text-[rgb(var(--color-orange))]'}`}>
+              До і після
+            </Link>
             <Link to="/reviews" className={`text-[rgb(var(--color-text-primary))] font-medium transition-colors ${location.pathname === '/reviews' ? 'text-[rgb(var(--color-orange))]' : 'hover:text-[rgb(var(--color-orange))]'}`}>
               Відгуки
             </Link>
@@ -96,6 +99,9 @@ export const Header: React.FC = () => {
             </Link>
             <Link to="/services" className={`text-[rgb(var(--color-text-primary))] px-4 py-2 rounded-lg transition-colors ${location.pathname === '/services' ? 'text-[rgb(var(--color-orange))] bg-[#2a2828]' : 'hover:text-[rgb(var(--color-orange))] hover:bg-[rgb(var(--color-gray-1))]'}`} onClick={() => setIsMenuOpen(false)}>
               Послуги
+            </Link>
+            <Link to="/before-after" className={`text-[rgb(var(--color-text-primary))] px-4 py-2 rounded-lg transition-colors ${location.pathname === '/before-after' ? 'text-[rgb(var(--color-orange))] bg-[#2a2828]' : 'hover:text-[rgb(var(--color-orange))] hover:bg-[rgb(var(--color-gray-1))]'}`} onClick={() => setIsMenuOpen(false)}>
+              До і після
             </Link>
             <Link to="/reviews" className={`text-[rgb(var(--color-text-primary))] px-4 py-2 rounded-lg transition-colors ${location.pathname === '/reviews' ? 'text-[rgb(var(--color-orange))] bg-[#2a2828]' : 'hover:text-[rgb(var(--color-orange))] hover:bg-[rgb(var(--color-gray-1))]'}`} onClick={() => setIsMenuOpen(false)}>
               Відгуки

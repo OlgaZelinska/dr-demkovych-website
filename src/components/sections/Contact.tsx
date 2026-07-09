@@ -3,19 +3,16 @@ const ContactBg = '/assets/contact-bg.webp'
 
 export const Contact: React.FC = () => {
   return (
-    <div className="relative py-16">
-      {/* Background with overlay */}
+    <div className="relative py-16 min-h-screen">
+      {/* Background image */}
       <div
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 pointer-events-none"
         style={{
           backgroundImage: `url(${ContactBg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
-      >
-        <div className="absolute inset-0 bg-[rgb(var(--color-dark))] bg-opacity-80" />
-        <div className="absolute inset-0 bg-[rgb(var(--color-dark))] blur-[120px] opacity-40" />
-      </div>
+      />
 
       <div className="container mx-auto px-4 relative z-10" id="contact-form">
         <div className="text-center max-w-4xl mx-auto mb-16">

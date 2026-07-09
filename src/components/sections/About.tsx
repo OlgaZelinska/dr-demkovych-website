@@ -31,19 +31,16 @@ export const About: React.FC = () => {
   }
 
   return (
-    <div className="relative py-16">
-      {/* Background with overlay */}
-      <div 
-        className="absolute inset-0 z-0"
+    <div className="relative py-16 min-h-screen">
+      {/* Background image */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
         style={{
           backgroundImage: `url(${ContactBg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
-      >
-        <div className="absolute inset-0 bg-[rgb(var(--color-dark))] bg-opacity-80" />
-        <div className="absolute inset-0 bg-[rgb(var(--color-dark))] blur-[120px] opacity-40" />
-      </div>
+      />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-4xl mx-auto mb-16">
@@ -66,13 +63,13 @@ export const About: React.FC = () => {
 
             <div className="mb-8 space-y-4">
               <p className="text-[rgb(var(--color-text-light))] text-lg leading-relaxed">
-                Спеціалізується на операціях з омолодження обличчя, мамопластиці, а також контурній пластиці тіла. Завдяки багаторічному досвіду та постійному вдосконаленню навичок, заслужив довіру серед пацієнтів.
+                Мене звати Олександр Демкович — я пластичний хірург з більш ніж 15-річним досвідом роботи. Моя місія — допомагати людям відчувати себе впевненими у своїй зовнішності, поєднуючи професіоналізм з природним естетичним результатом.
               </p>
               <p className="text-[rgb(var(--color-text-light))] text-lg leading-relaxed">
-                Його підхід до краси базується на принципі гармонії та природності, що дозволяє досягати результатів, які підкреслюють індивідуальність, а не змінюють зовнішність до невпізнаваності.
+                Я закінчив Київську медичну академію імені О.О. Бойка, а пізніше продовжив навчання в аспірантурі Прикарпатського національного університету. Мій науковий дослідження та міжнародні конгреси допомагають мені залишатися на передовій сучасної медицини.
               </p>
               <p className="text-[rgb(var(--color-text-light))] text-lg leading-relaxed">
-                Окрім клінічної практики, Демкович Олександр активно бере участь у міжнародних конгресах, семінарах та майстер-класах, як науковець, оскільки має науковий ступінь доктора філософії (PhD).
+                Мій підхід — це індивідуальний клінічний підхід. Я вірю, що гармонія і природність важливіше заExtreme зміни: моя мета — підкреслити вашу унікальність, а не змінювати вас до невпізнаваності.
               </p>
             </div>
 
@@ -83,19 +80,19 @@ export const About: React.FC = () => {
                   <svg className="w-5 h-5 mt-0.5 text-[rgb(var(--color-orange))] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-[rgb(var(--color-text-secondary))]">Спеціалізація: пластична хірургія, загальна хірургія та герніологія, оперативна проктологія</span>
+                  <span className="text-[rgb(var(--color-text-secondary))]">Мій досвід більше 10 років та тисячами виконаних операцій</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-5 h-5 mt-0.5 text-[rgb(var(--color-orange))] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-[rgb(var(--color-text-secondary))]">Методи роботи: мінімально інвазивні технології, лазерна хірургія, ендоскопія</span>
+                  <span className="text-[rgb(var(--color-text-secondary))]">Використовую сучасні технології: мінімально інвазивні методи, лазерну хірургію та ендоскопію</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-5 h-5 mt-0.5 text-[rgb(var(--color-orange))] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-[rgb(var(--color-text-secondary))]">Підхід: індивідуальний, з урахуванням анатомічних особливостей</span>
+                  <span className="text-[rgb(var(--color-text-secondary))]">Роблю ставку на довіру — перша консультація безкоштовна, щоб ми зрозуміли один одного</span>
                 </li>
               </ul>
             </div>

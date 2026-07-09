@@ -23,7 +23,7 @@ export const services: Service[] = [
     duration: '1-2 год',
     procedures: [
       { name: 'Імпланти Motiva круглі', price: '1500€' },
-      { name: 'Імпланти Motiva єргономічні', price: '2000€' },
+      { name: 'Імпланти Motiva ергономічні', price: '2000€' },
       { name: 'Імпланти Mentor siltex', price: '1500€' },
       { name: 'Імпланти Polytech meme mesmo', price: '1500€' },
       { name: 'При потребі є звітні документи', price: 'договірно' },
@@ -109,7 +109,7 @@ export const services: Service[] = [
   {
     id: 'hernia-1',
     title: 'Алогерніопластика (пластика гриж живота)',
-    description: 'Алогерніопластика відповідно до прайсу Adonis. Використання сучасних імплантів Adonis для реконструкції передньої черевної стінки.',
+    description: 'Використання сучасних імплантів Adonis для реконструкції передньої черевної стінки.',
     icon: 'soft-tissue',
     price: 'від 30000 ₴',
     duration: '1-2 год',

@@ -3,7 +3,8 @@ import { Layout } from '../components/layout/Layout'
 import { Hero } from '../components/sections/Hero'
 import { Services } from '../components/sections/Services'
 import { About } from '../components/sections/About'
-import { ReviewsCombined } from '../components/sections/ReviewsCombined'
+import BeforeAfterPage from '../components/sections/BeforeAfterPage'
+import ReviewsPage from '../components/sections/ReviewsPage'
 import { Contact } from '../components/sections/Contact'
 
 export function AppRoutes() {
@@ -13,7 +14,8 @@ export function AppRoutes() {
         <Route index element={<Hero />} />
         <Route path="services" element={<Services />} />
         <Route path="about" element={<About />} />
-        <Route path="reviews" element={<ReviewsCombined />} />
+        <Route path="before-after" element={<BeforeAfterPage />} />
+        <Route path="reviews" element={<ReviewsPage />} />
         <Route path="contact" element={<Contact />} />
       </Route>
     </Routes>

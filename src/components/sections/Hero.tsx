@@ -1,30 +1,15 @@
 import React from 'react'
-import HeroDesktop from '../../assets/images/hero-bg-desktop.webp'
-import HeroMobile from '../../assets/images/hero-bg-mobile.webp'
+const HeroDesktop = '/assets/images/hero-bg-desktop.webp'
+const HeroMobile = '/assets/images/hero-bg-mobile.webp'
 
 export const Hero: React.FC = () => {
   return (
     <div className="relative overflow-hidden bg-[rgb(var(--color-dark))] min-h-screen">
-      {/* Background Images - desktop and tablet */}
+      {/* Background image */}
       <div
-        className="absolute inset-0 z-0 hidden md:block"
+        className="absolute inset-0 z-0 pointer-events-none"
         style={{
           backgroundImage: `url(${HeroDesktop})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      />
-      <div
-        className="absolute inset-0 z-0 hidden md:block"
-        style={{
-          background: 'linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 15%, transparent 40%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.6) 100%)',
-        }}
-      />
-      <div
-        className="absolute inset-0 z-0 md:hidden"
-        style={{
-          backgroundImage: `url(${HeroMobile})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

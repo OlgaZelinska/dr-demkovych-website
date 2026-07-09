@@ -29,8 +29,14 @@
     --color-gray-2: 58, 56, 56;
   }
 
+  html {
+    background-image: url('/assets/images/contact-bg.webp');
+    background-size: cover;
+    background-position: center;
+  }
+
   body {
-    @apply bg-white text-gray-900 font-sans;
+    @apply bg-transparent text-gray-900 font-sans;
     line-height: 1.6;
   }
 }

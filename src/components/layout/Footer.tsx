@@ -45,12 +45,32 @@ export const Footer: React.FC = () => {
           {/* Services */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-white">Послуги</h3>
-            <ul className="space-y-2 text-sm text-[rgb(var(--color-text-secondary))]">
-              <li>Пластика грудей</li>
-              <li>Пластика тіла</li>
-              <li>Пластика обличчя</li>
-              <li>Алогерніопластика</li>
-              <li>Консультації</li>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/services#breast" className="text-[rgb(var(--color-text-secondary))] hover:text-[rgb(var(--color-orange))] transition-colors">
+                  Пластика грудей
+                </Link>
+              </li>
+              <li>
+                <Link to="/services#body" className="text-[rgb(var(--color-text-secondary))] hover:text-[rgb(var(--color-orange))] transition-colors">
+                  Пластика тіла
+                </Link>
+              </li>
+              <li>
+                <Link to="/services#face" className="text-[rgb(var(--color-text-secondary))] hover:text-[rgb(var(--color-orange))] transition-colors">
+                  Пластика обличчя
+                </Link>
+              </li>
+              <li>
+                <Link to="/services#hernia" className="text-[rgb(var(--color-text-secondary))] hover:text-[rgb(var(--color-orange))] transition-colors">
+                  Алогерніопластика
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="text-[rgb(var(--color-text-secondary))] hover:text-[rgb(var(--color-orange))] transition-colors">
+                  Консультації
+                </Link>
+              </li>
             </ul>
           </div>
 

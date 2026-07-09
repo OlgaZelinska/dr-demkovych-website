@@ -7,7 +7,7 @@ export interface DoctorInfo {
 
 export const doctorInfo: DoctorInfo = {
   name: 'Олександр Демкович',
-  position: 'Хірург високої кваліфікації',
+  position: 'Пластичний хірург, кандидат медичних наук',
   experience: 15,
   education: [
     'Київська медична академія імені О.О. Бойка, специалість "Хірургія", 2009',

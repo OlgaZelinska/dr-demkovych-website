@@ -54,27 +54,24 @@ export const Services: React.FC = () => {
     const colors: Record<string, string> = {
       'breast-1': 'border-[rgb(var(--color-orange))]',
       'breast-2': 'border-[rgb(var(--color-orange))]',
-      'body-1': 'border-[rgb(var(--color-text-secondary))]',
-      'face-1': 'border-[rgb(var(--color-text-secondary))]',
-      'hernia-1': 'border-[rgb(var(--color-gray-2))]',
+      'body-1': 'border-[rgb(var(--color-orange))]',
+      'face-1': 'border-[rgb(var(--color-orange))]',
+      'hernia-1': 'border-[rgb(var(--color-orange))]',
     }
     return colors[id] || 'border-[rgb(var(--color-orange))]'
   }
 
   return (
-    <div className="relative py-16">
-      {/* Background with overlay */}
-      <div 
-        className="absolute inset-0 z-0"
+    <div className="relative py-16 min-h-screen">
+      {/* Background image */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
         style={{
           backgroundImage: `url(${ContactBg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
-      >
-        <div className="absolute inset-0 bg-[rgb(var(--color-dark))] bg-opacity-80" />
-        <div className="absolute inset-0 bg-[rgb(var(--color-dark))] blur-[120px] opacity-40" />
-      </div>
+      />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-4xl mx-auto mb-16">
@@ -93,6 +90,7 @@ export const Services: React.FC = () => {
 
             return (
               <div
+                id={service.id}
                 key={service.id}
                 className={`bg-[rgb(var(--color-dark))]/60 backdrop-blur-md rounded-2xl border ${categoryColor} border-opacity-30 overflow-hidden transition-all duration-300 ${
                   isExpanded ? 'shadow-2xl border-opacity-50' : 'shadow-lg border-opacity-20'
@@ -104,26 +102,18 @@ export const Services: React.FC = () => {
                   className="w-full p-6 md:p-8 text-left focus:outline-none focus:ring-2 focus:ring-[rgb(var(--color-orange))] focus:ring-offset-2 focus:ring-offset-[rgb(var(--color-dark))]"
                 >
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div className="flex items-start gap-3 w-full">
-                      <div className={`flex-shrink-0 w-10 h-10 md:w-14 md:h-14 rounded-lg md:rounded-xl flex items-center justify-center ${categoryColor} bg-opacity-10`}>
-                        <ServiceIcon type={service.icon} />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-base md:text-xl font-bold text-white mb-1 md:mb-2 line-clamp-2">
-                          {service.title}
-                        </h3>
-                        <p className="text-[rgb(var(--color-text-secondary))] text-xs md:text-sm max-w-2xl line-clamp-2">
-                          {service.description}
-                        </p>
-                      </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg md:text-2xl font-bold text-white mb-2 md:mb-3 line-clamp-2">
+                        {service.title}
+                      </h3>
+                      <p className="text-[rgb(var(--color-text-secondary))] text-sm md:text-base max-w-2xl line-clamp-2">
+                        {service.description}
+                      </p>
                     </div>
                     <div className="flex items-center gap-3 md:gap-6 w-full md:w-auto justify-between md:justify-end">
                       <div className="text-right">
-                        <div className="text-white font-semibold text-sm md:text-base md:font-semibold">{service.price}</div>
-                        <div className="text-[rgb(var(--color-text-secondary))] text-[10px] md:text-xs mt-0.5 md:mt-1 flex items-center justify-end gap-0.5 md:gap-1">
-                          <svg className="w-2.5 h-2.5 md:w-3 md:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
+                        <div className="text-white font-semibold text-base md:text-xl">{service.price}</div>
+                        <div className="text-[rgb(var(--color-text-secondary))] text-xs mt-0.5 md:mt-1">
                           {service.duration}
                         </div>
                       </div>
@@ -147,21 +137,21 @@ export const Services: React.FC = () => {
                 >
                   <div className="px-6 md:px-8 pb-6 pt-0 border-t border-white/5 mt-2">
                     <div className="bg-[rgb(var(--color-dark))]/40 rounded-xl p-5 mt-4">
-                      <div className="flex justify-between items-center gap-3 mb-2">
-                        <span className="text-[rgb(var(--color-orange))] font-medium text-[10px] sm:text-xs uppercase tracking-wider">
-                          Процедури та ціни:
+                      <div className="flex justify-between items-center gap-3 mb-3">
+                        <span className="text-[rgb(var(--color-orange))] font-semibold text-sm md:text-base uppercase tracking-wider">
+                          Операції та ціни:
                         </span>
                       </div>
                       <div className="space-y-2">
                         {service.procedures?.map((proc, procIndex) => (
                           <div
                             key={procIndex}
-                            className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 border-b border-white/5 last:border-0 hover:bg-white/5 px-2 rounded transition-colors duration-200 gap-1"
+                            className="flex justify-between items-center py-2 border-b border-white/5 last:border-0 hover:bg-white/5 px-2 rounded transition-colors duration-200"
                           >
-                            <span className="text-[rgb(var(--color-text-light))] text-xs sm:text-sm leading-relaxed">
+                            <span className="text-[rgb(var(--color-text-light))] text-sm md:text-base leading-relaxed">
                               {proc.name}
                             </span>
-                            <span className="font-semibold text-[rgb(var(--color-orange))] text-xs sm:text-sm">
+                            <span className="font-semibold text-[rgb(var(--color-orange))] text-sm md:text-base whitespace-nowrap">
                               {formatPrice(proc.price)}
                             </span>
                           </div>
